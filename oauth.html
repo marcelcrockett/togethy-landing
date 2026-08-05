@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Togethy - Connecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #F5F7FA; }
+    .container { text-align: center; padding: 32px; }
+    h2 { color: #1F2D4E; }
+    p { color: #888; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Connecting your bank...</h2>
+    <p>Please wait while we complete the connection.</p>
+  </div>
+  <script>
+    // Send the OAuth redirect back to the WebView
+    if (window.ReactNativeWebView) {
+      window.ReactNativeWebView.postMessage(JSON.stringify({
+        type: 'oauth_redirect',
+        url: window.location.href
+      }));
+    }
+  </script>
+</body>
+</html>
